@@ -1,2 +1,3 @@
-# silver-giggle
-Collection of unit test helpers
+# SilverGiggle
+
+A collection of unit test helper classes.
