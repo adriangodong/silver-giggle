@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace SilverGiggle.Tests
@@ -14,10 +15,10 @@ namespace SilverGiggle.Tests
             var rootType = typeof(InternalResourceManagerTests);
 
             // Act
-            var internalResourceManager = new InternalResourceManager(rootType);
+            var internalResourceManager = new InternalResourceManager(rootType.GetTypeInfo());
 
             // Assert
-            Assert.AreEqual(rootType.Assembly, internalResourceManager.Assembly);
+            Assert.AreEqual(rootType.GetTypeInfo().Assembly, internalResourceManager.Assembly);
             Assert.AreEqual("SilverGiggle.Tests", internalResourceManager.ResourceNamespace);
         }
 
@@ -26,7 +27,7 @@ namespace SilverGiggle.Tests
         {
             // Arrange
             var rootType = typeof(InternalResourceManagerTests);
-            var internalResourceManager = new InternalResourceManager(rootType);
+            var internalResourceManager = new InternalResourceManager(rootType.GetTypeInfo());
 
             // Act
             var value = internalResourceManager.GetString("test-resource.txt");
@@ -40,7 +41,7 @@ namespace SilverGiggle.Tests
         {
             // Arrange
             var rootType = typeof(InternalResourceManagerTests);
-            var internalResourceManager = new InternalResourceManager(rootType);
+            var internalResourceManager = new InternalResourceManager(rootType.GetTypeInfo());
 
             // Act
             Assert.ThrowsException<ArgumentException>(
