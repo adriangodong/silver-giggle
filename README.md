@@ -13,3 +13,4 @@ A collection of unit test helper classes.
 
 * [EnvironmentVariableScope](/docs/EnvironmentVariableScope.md)
 * [InternalResourceManager](/docs/InternalResourceManager.md)
+* [RandomValue](/docs/RandomValue.md)
