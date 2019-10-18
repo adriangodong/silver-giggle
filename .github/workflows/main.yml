@@ -1,0 +1,16 @@
+name: .NET CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/setup-dotnet@v1
+    - name: dotnet build and test
+      run: |
+        dotnet build SilverGiggle.sln
+        dotnet test SilverGiggle.Tests/SilverGiggle.Tests.csproj
